@@ -50,3 +50,18 @@ CREATE TABLE facturas
         REFERENCES `tienda_zapatillas`.`zapatillas` (`id_zapatilla`)
         );
     
+    ALTER TABLE zapatillas
+    ADD COLUMN marca VARCHAR(45) NOT NULL,
+    ADD COLUMN talla INT NOT NULL;
+    
+    ALTER TABLE empleados
+    MODIFY COLUMN salario FLOAT;
+    
+    ALTER TABLE clientes
+    DROP COLUMN pais;
+    
+    ALTER TABLE clientes
+    MODIFY COLUMN codigo_postal INT(5) NOT NULL;
+    
+    ALTER TABLE facturas
+    ADD COLUMN factura_total FLOAT NOT NULL;
