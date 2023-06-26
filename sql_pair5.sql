@@ -58,7 +58,8 @@ SELECT `order_id`, (`unit_price` * `quantity`) AS `ImporteTotal`
 SELECT DISTINCT`order_id`, (`unit_price` * `quantity`) AS `ImporteTotal`
 	FROM `order_details`
     ORDER BY `ImporteTotal` DESC
-    LIMIT 5 OFFSET 5;
+    LIMIT 6 
+    OFFSET 4;
     
 SELECT `category_name` AS `NombreDeCategoria`
 	FROM `categories`
@@ -75,9 +76,37 @@ SELECT `unit_price`
 	FROM `products`
     WHERE `unit_price` IN (18, 19, 20);
 
+SELECT MAX(`unit_price`) AS `highestPrice`
+	FROM `products`;
+    
+SELECT MIN(`unit_price`) AS `LOWESPrice`
+	FROM `products`;
 
+SELECT COUNT(`product_id`) , AVG(`unit_price`) 
+	FROM `products`;
 
+SELECT MAX(`freight`) , MIN(`freight`) 
+	FROM `orders`
+    WHERE `ship_country` = 'UK';
 
+SELECT `product_name`
+	FROM `products`
+    WHERE `unit_price` > 28.86;
+    
+SELECT `product_name`,`unit_price`
+	FROM `products`
+    WHERE `unit_price` > 28.86
+    ORDER BY `unit_price`DESC;
+    
+SELECT COUNT(`discontinued`)
+	FROM `products`;
+    
+SELECT `product_id` , `product_name`
+	FROM `products`
+    WHERE `discontinued`= 0
+    ORDER BY `product_id`DESC
+    LIMIT 10;
+ 
 
 
 
